@@ -1,5 +1,6 @@
 import { IPokemon, IPokemonList } from "@/types/pokemon";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function PokemonList() {
   const [pokemonListData, setPokemonListData] = useState<IPokemon[] | null>(null);
@@ -43,7 +44,7 @@ export default function PokemonList() {
       </div>
       {pokemonCardData && (
         <div className="w-3/4 md:w-1/2 bg-stone-500/30 rounded-full relative">
-          <img src={pokemonCardData?.sprites?.front_default} alt="pokemon image" className="w-full" />
+          <Image src={pokemonCardData?.sprites?.front_default} alt="pokemon image" width={500} height={500} />
           <span className="absolute left-1/2 bottom-0 -translate-x-1/2 -translate-y-1/2 text-stone-500">
             {selectedPokemon && firstLetterUpper(selectedPokemon)}
           </span>
